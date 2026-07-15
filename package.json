@@ -1,0 +1,42 @@
+{
+  "name": "api-response-util",
+  "version": "1.0.0",
+  "description": "Tiny Express helpers for consistent API success and error JSON responses.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test tests/response.test.js",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "response",
+    "json",
+    "success",
+    "error",
+    "http",
+    "rest"
+  ],
+  "author": "anilachary",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theinfyark/api-response-util.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theinfyark/api-response-util/issues"
+  },
+  "homepage": "https://github.com/theinfyark/api-response-util#readme",
+  "engines": {
+    "node": ">=18"
+  }
+}
