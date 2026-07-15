@@ -84,7 +84,7 @@ export function error(res, message, status = 400, details) {
  * notFound(res);
  * notFound(res, "User not found");
  */
-export function notFound(res, message = "Not Found", details) {
+export function notFound(res, message = 'Not Found', details) {
   return error(res, message, 404, details);
 }
 
@@ -95,7 +95,7 @@ export function notFound(res, message = "Not Found", details) {
  * @param {string} [message="Unauthorized"]
  * @param {unknown} [details]
  */
-export function unauthorized(res, message = "Unauthorized", details) {
+export function unauthorized(res, message = 'Unauthorized', details) {
   return error(res, message, 401, details);
 }
 
@@ -106,7 +106,7 @@ export function unauthorized(res, message = "Unauthorized", details) {
  * @param {string} [message="Forbidden"]
  * @param {unknown} [details]
  */
-export function forbidden(res, message = "Forbidden", details) {
+export function forbidden(res, message = 'Forbidden', details) {
   return error(res, message, 403, details);
 }
 
@@ -117,7 +117,7 @@ export function forbidden(res, message = "Forbidden", details) {
  * @param {string} [message="Conflict"]
  * @param {unknown} [details]
  */
-export function conflict(res, message = "Conflict", details) {
+export function conflict(res, message = 'Conflict', details) {
   return error(res, message, 409, details);
 }
 
@@ -128,7 +128,7 @@ export function conflict(res, message = "Conflict", details) {
  * @param {string} [message="Internal Server Error"]
  * @param {unknown} [details]
  */
-export function fail(res, message = "Internal Server Error", details) {
+export function fail(res, message = 'Internal Server Error', details) {
   return error(res, message, 500, details);
 }
 
@@ -138,7 +138,7 @@ export function fail(res, message = "Internal Server Error", details) {
  * @param {ResponseLike & { sendStatus?: (code: number) => unknown, send?: (body?: unknown) => unknown }} res
  */
 export function noContent(res) {
-  if (typeof res.sendStatus === "function") return res.sendStatus(204);
+  if (typeof res.sendStatus === 'function') return res.sendStatus(204);
   return res.status(204).send();
 }
 

@@ -12,17 +12,17 @@ npm install api-response-util
 
 ```js
 res.json(data);
-res.status(400).json({ message: "Invalid User" });
-res.status(404).json({ message: "Not Found" });
+res.status(400).json({ message: 'Invalid User' });
+res.status(404).json({ message: 'Not Found' });
 ```
 
 ## Do
 
 ```js
-import { success, error, created, notFound } from "api-response-util";
+import { success, error, created, notFound } from 'api-response-util';
 
 success(res, data);
-error(res, "Invalid User");
+error(res, 'Invalid User');
 created(res, user);
 notFound(res);
 ```
@@ -52,20 +52,20 @@ notFound(res);
 ## Express example
 
 ```js
-import express from "express";
-import { success, error, created, notFound } from "api-response-util";
+import express from 'express';
+import { success, error, created, notFound } from 'api-response-util';
 
 const app = express();
 app.use(express.json());
 
-app.get("/users/:id", (req, res) => {
+app.get('/users/:id', (req, res) => {
   const user = null; // pretend lookup
-  if (!user) return notFound(res, "User not found");
+  if (!user) return notFound(res, 'User not found');
   return success(res, user);
 });
 
-app.post("/users", (req, res) => {
-  if (!req.body?.email) return error(res, "Invalid User");
+app.post('/users', (req, res) => {
+  if (!req.body?.email) return error(res, 'Invalid User');
   return created(res, { id: 1, ...req.body });
 });
 
@@ -74,24 +74,24 @@ app.listen(3000);
 
 ## API
 
-| Helper | Status | Purpose |
-|--------|--------|---------|
-| `success(res, data, options?)` | 200 | OK |
-| `created(res, data, options?)` | 201 | Created |
-| `error(res, message, status?, details?)` | 400 default | Error |
-| `notFound(res, message?, details?)` | 404 | Not found |
-| `unauthorized(res, message?, details?)` | 401 | Auth required |
-| `forbidden(res, message?, details?)` | 403 | Forbidden |
-| `conflict(res, message?, details?)` | 409 | Conflict |
-| `fail(res, message?, details?)` | 500 | Server error |
-| `noContent(res)` | 204 | Empty body |
-| `paginated(res, data, meta)` | 200 | Lists + page meta |
+| Helper                                   | Status      | Purpose           |
+| ---------------------------------------- | ----------- | ----------------- |
+| `success(res, data, options?)`           | 200         | OK                |
+| `created(res, data, options?)`           | 201         | Created           |
+| `error(res, message, status?, details?)` | 400 default | Error             |
+| `notFound(res, message?, details?)`      | 404         | Not found         |
+| `unauthorized(res, message?, details?)`  | 401         | Auth required     |
+| `forbidden(res, message?, details?)`     | 403         | Forbidden         |
+| `conflict(res, message?, details?)`      | 409         | Conflict          |
+| `fail(res, message?, details?)`          | 500         | Server error      |
+| `noContent(res)`                         | 204         | Empty body        |
+| `paginated(res, data, meta)`             | 200         | Lists + page meta |
 
 ### Options for `success` / `created`
 
 ```js
 success(res, items, {
-  message: "Fetched",
+  message: 'Fetched',
   meta: { count: items.length },
 });
 ```

@@ -1,5 +1,5 @@
-import { describe, it } from "node:test";
-import assert from "node:assert/strict";
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
 import {
   success,
   created,
@@ -11,7 +11,7 @@ import {
   fail,
   noContent,
   paginated,
-} from "../src/index.js";
+} from '../src/index.js';
 
 function mockRes() {
   /** @type {{ statusCode: number | null, body: unknown, status: Function, json: Function, sendStatus?: Function, send?: Function }} */
@@ -39,54 +39,54 @@ function mockRes() {
   return res;
 }
 
-describe("api-response-util", () => {
-  it("success(res, data)", () => {
+describe('api-response-util', () => {
+  it('success(res, data)', () => {
     const res = mockRes();
     success(res, { id: 1 });
     assert.equal(res.statusCode, 200);
     assert.deepEqual(res.body, { success: true, data: { id: 1 } });
   });
 
-  it("created(res, user)", () => {
+  it('created(res, user)', () => {
     const res = mockRes();
-    created(res, { name: "Ann" });
+    created(res, { name: 'Ann' });
     assert.equal(res.statusCode, 201);
-    assert.deepEqual(res.body, { success: true, data: { name: "Ann" } });
+    assert.deepEqual(res.body, { success: true, data: { name: 'Ann' } });
   });
 
   it('error(res, "Invalid User")', () => {
     const res = mockRes();
-    error(res, "Invalid User");
+    error(res, 'Invalid User');
     assert.equal(res.statusCode, 400);
     assert.deepEqual(res.body, {
       success: false,
-      error: { message: "Invalid User" },
+      error: { message: 'Invalid User' },
     });
   });
 
-  it("notFound(res)", () => {
+  it('notFound(res)', () => {
     const res = mockRes();
     notFound(res);
     assert.equal(res.statusCode, 404);
     assert.deepEqual(res.body, {
       success: false,
-      error: { message: "Not Found" },
+      error: { message: 'Not Found' },
     });
   });
 
-  it("supports optional message/meta and status helpers", () => {
+  it('supports optional message/meta and status helpers', () => {
     const res = mockRes();
-    success(res, [], { message: "ok", meta: { count: 0 } });
+    success(res, [], { message: 'ok', meta: { count: 0 } });
     assert.deepEqual(res.body, {
       success: true,
       data: [],
-      message: "ok",
+      message: 'ok',
       meta: { count: 0 },
     });
 
-    unauthorized(mockRes(), "No token");
+    unauthorized(mockRes(), 'No token');
     forbidden(mockRes());
-    conflict(mockRes(), "Exists");
+    conflict(mockRes(), 'Exists');
     fail(mockRes());
 
     const p = mockRes();
@@ -100,7 +100,7 @@ describe("api-response-util", () => {
     });
   });
 
-  it("noContent(res)", () => {
+  it('noContent(res)', () => {
     const res = mockRes();
     noContent(res);
     assert.equal(res.statusCode, 204);
