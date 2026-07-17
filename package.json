@@ -1,6 +1,6 @@
 {
   "name": "api-response-util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Tiny Express helpers for consistent API success and error JSON responses.",
   "type": "module",
   "main": "./src/index.js",
