@@ -8,6 +8,8 @@ Tiny zero-dependency helpers for **consistent Express API JSON responses**.
 npm install api-response-util
 ```
 
+## Quick Start
+
 ## Instead of
 
 ```js
@@ -160,7 +162,7 @@ Works with Express, Fastify, Hono, NestJS, and plain Node HTTP servers. Import E
 ## TypeScript Usage
 
 ```ts
-import { /* symbols */ } from "api-response-util";
+import { success, error, created, notFound } from 'api-response-util';
 ```
 
 Types ship with the package (`types` / `exports.types`). Enable `strict` in your `tsconfig` for the best DX.
@@ -200,21 +202,22 @@ Open a GitHub issue using the bug template.
 ## Migration Guide
 
 ### From 0.x / early drafts
+
 This package follows SemVer. Breaking changes land in major releases and are called out in `CHANGELOG.md`.
 
 ### Upgrading patch/minor
+
 Patch and minor releases are backward compatible. Run your test suite after upgrading.
 
 ## Troubleshooting
 
-| Symptom | Likely cause | Fix |
-|---------|--------------|-----|
-| `ERR_MODULE_NOT_FOUND` | Wrong Node version / bad import path | Use Node 18+ and package `exports` |
-| Types not resolving | Old moduleResolution | Use `bundler` or `node16`+ |
-| Auth / network failures | Missing env or blocked egress | Check credentials and firewall |
-| Unexpected runtime errors | Invalid input | Validate options; read error message |
+| Symptom                   | Likely cause                         | Fix                                  |
+| ------------------------- | ------------------------------------ | ------------------------------------ |
+| `ERR_MODULE_NOT_FOUND`    | Wrong Node version / bad import path | Use Node 18+ and package `exports`   |
+| Types not resolving       | Old moduleResolution                 | Use `bundler` or `node16`+           |
+| Auth / network failures   | Missing env or blocked egress        | Check credentials and firewall       |
+| Unexpected runtime errors | Invalid input                        | Validate options; read error message |
 
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md). PRs with tests and docs are welcome.
-
