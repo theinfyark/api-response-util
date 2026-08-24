@@ -8,6 +8,14 @@ Tiny zero-dependency helpers for **consistent Express API JSON responses**.
 npm install api-response-util
 ```
 
+## Features
+
+- Consistent `{ success, data }` / `{ success, error }` JSON envelopes
+- Helpers for created, notFound, unauthorized, forbidden, conflict, fail, paginated, noContent
+- Validates HTTP status codes (integers 100–599)
+- Zero dependencies, Express-friendly
+- Dual ESM + CommonJS entry points
+
 ## Quick Start
 
 ## Instead of

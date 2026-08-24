@@ -5,11 +5,23 @@
  */
 
 /**
+ * @param {number} status
+ */
+function assertHttpStatus(status) {
+  if (!Number.isInteger(status) || status < 100 || status > 599) {
+    throw new TypeError(
+      `Invalid HTTP status code: ${status}. Must be an integer between 100 and 599.`,
+    );
+  }
+}
+
+/**
  * @param {ResponseLike} res
  * @param {number} status
  * @param {Record<string, unknown>} body
  */
 function send(res, status, body) {
+  assertHttpStatus(status);
   return res.status(status).json(body);
 }
 

@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [1.1.0] - 2026-08-24
+
+### Added
+
+- Dual CommonJS export via tsup (`require()` → `dist/index.cjs`)
+
+### Fixed
+
+- `success` / `error` helpers throw `TypeError` unless the status code is an integer between 100 and 599
+
 ## [1.0.3] - 2026-07-18
 
 ### Changed

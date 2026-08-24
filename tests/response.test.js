@@ -105,4 +105,19 @@ describe('api-response-util', () => {
     noContent(res);
     assert.equal(res.statusCode, 204);
   });
+
+  it('rejects invalid status codes', () => {
+    assert.throws(
+      () => error(mockRes(), 'nope', 99),
+      (err) => err instanceof TypeError && /status code/.test(err.message),
+    );
+    assert.throws(
+      () => success(mockRes(), {}, { status: 600 }),
+      TypeError,
+    );
+    assert.throws(
+      () => error(mockRes(), 'nope', 200.5),
+      TypeError,
+    );
+  });
 });
